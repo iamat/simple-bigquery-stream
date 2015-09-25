@@ -1,0 +1,33 @@
+{
+  "name": "simple-bigquery-stream",
+  "version": "1.0.0",
+  "description": "Writeable stream to store data en Google BigQuery",
+  "main": "index.js",
+  "scripts": {
+    "test": "exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://git@github.com/iamat/simple-bigquery-stream.git"
+  },
+  "keywords": [
+    "bigquery",
+    "stream",
+    "google",
+    "gce"
+  ],
+  "author": {
+    "name": "Lars Jacob",
+    "email": "lars@iamat.com",
+    "url": "https://twitter.com/jaclar"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iamat/bigquery-stream/issues"
+  },
+  "homepage": "https://github.com/iamat/bigquery-stream#readme",
+  "dependencies": {
+    "googleapis": "^2.1.5",
+    "node-uuid": "^1.4.3"
+  }
+}
