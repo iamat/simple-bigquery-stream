@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/iamat/bigquery-stream#readme",
   "dependencies": {
-    "googleapis": "^2.1.5",
-    "node-uuid": "^1.4.3"
+    "googleapis": "2.1.5",
+    "node-uuid": "1.4.3"
   }
 }
