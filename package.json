@@ -23,9 +23,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/iamat/bigquery-stream/issues"
+    "url": "https://github.com/iamat/simple-bigquery-stream/issues"
   },
-  "homepage": "https://github.com/iamat/bigquery-stream#readme",
+  "homepage": "https://github.com/iamat/simple-bigquery-stream#readme",
   "dependencies": {
     "googleapis": "^2.1.5",
     "node-uuid": "^1.4.3"

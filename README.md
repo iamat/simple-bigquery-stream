@@ -22,8 +22,8 @@ var stream = createStream({
     authJSON: require("./google-key.json") // your JSON key
 });
 
-stream.write({ key: "foo1", value: "bar1"});
-stream.write({ key: "foo2", value: "bar2"});
+stream.write({ field01: "bar", field02: "foo"});
+stream.write({ field01: "foo2", field02: "bar2"});
 stream.end();
 
 ```
