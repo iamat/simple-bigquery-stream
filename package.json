@@ -4,7 +4,8 @@
   "description": "Writeable stream to store data en Google BigQuery",
   "main": "index.js",
   "scripts": {
-    "test": "exit 0"
+      "test": "exit 0",
+      "localtest": "make"
   },
   "repository": {
     "type": "git",
@@ -27,7 +28,15 @@
   },
   "homepage": "https://github.com/iamat/bigquery-stream#readme",
   "dependencies": {
+    "extend": "^3.0.0",
     "googleapis": "^2.1.5",
     "node-uuid": "^1.4.3"
+  },
+  "devDependencies": {
+    "async": "^1.4.2",
+    "chai": "~3.3.0",
+    "mocha": "~2.3.3",
+    "replay": "^2.0.6",
+    "sinon": "~1.17.1"
   }
 }
