@@ -28,12 +28,12 @@
   },
   "homepage": "https://github.com/iamat/simple-bigquery-stream#readme",
   "dependencies": {
-    "extend": "^3.0.0",
     "googleapis": "^2.1.5",
     "node-uuid": "^1.4.3"
   },
   "devDependencies": {
     "async": "^1.4.2",
+    "extend": "^3.0.0",
     "chai": "~3.3.0",
     "mocha": "~2.3.3",
     "replay": "^2.0.6",
