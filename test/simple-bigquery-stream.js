@@ -1,5 +1,6 @@
 var chai = require("chai"),
     async = require("async"),
+    stream = require("stream"),
     sinon = require("sinon");
 
 var createStream = require("../index"),
@@ -41,36 +42,65 @@ describe("Simple BigQuery Stream - to be run LOCALY", function() {
 
     // Test disabled because an issue saving https messages exchange
     it("should insert new entries", function(done) {
-        var stream = createStream({
+        var simpleStream = createStream({
             projectId: project,
             datasetId: dataset,
             tableId: "stream",
             authJSON: require("../google-key.json") // your JSON key
         });
 
-        stream.write({ field01: "bar", field02: "foo"});
-        stream.write({ field01: "foo2", field02: "bar2"});
-        stream.on("error", function(err) {
+        simpleStream.write({ field01: "bar", field02: "foo"});
+        simpleStream.write({ field01: "foo2", field02: "bar2"});
+        simpleStream.end();
+        simpleStream.on("error", function(err) {
             done(err);
         });
-        stream.end(function() {
-            done();
-        });
-
+        simpleStream.on("finish", done);
     })
     ;
 
     it("should issue error event because invalid fields", function(done) {
-        var stream = createStream({
+        var simpleStream = createStream({
             projectId: project,
             datasetId: dataset,
             tableId: "stream",
             authJSON: require("../google-key.json") // your JSON key
         });
 
-        stream.write({ invalid: "value"});
-        stream.on("error", function(err) {
+        simpleStream.write({ invalid: "value"});
+        simpleStream.on("error", function(err) {
             done(!err);
         });
+    });
+
+    it("should be pipeable", function(done) {
+        var simpleStream = createStream({
+            projectId: project,
+            datasetId: dataset,
+            tableId: "stream",
+            authJSON: require("../google-key.json") // your JSON key
+        });
+
+        var readStream = new stream.Readable({
+            objectMode: true
+        });
+        var count = 2;
+        readStream._read = function() {
+            count--;
+
+            if ( count > 0 ) {
+                this.push({ "field01": "value00", "field02": "value01"});
+                return;
+            }
+
+            this.push(null);
+
+        };
+
+        readStream.pipe(simpleStream);
+
+        simpleStream.on("finish", done);
+
+
     });
 });
