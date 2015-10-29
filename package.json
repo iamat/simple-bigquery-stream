@@ -1,11 +1,11 @@
 {
   "name": "simple-bigquery-stream",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Writeable stream to store data en Google BigQuery",
   "main": "index.js",
   "scripts": {
-      "test": "exit 0",
-      "localtest": "make"
+    "test": "exit 0",
+    "localtest": "make"
   },
   "repository": {
     "type": "git",
