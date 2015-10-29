@@ -32,8 +32,11 @@ module.exports = function createStream (options) {
 				    };
 			    })
 		    }
-        }, function () {
-            next();
+        }, function (err, res) {
+            if ( res.insertErrors && res.insertErrors.length ) {
+                err = err || new Error(JSON.stringify(res.insertErrors));
+            }
+            next(err);
         });
     };
 
