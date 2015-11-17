@@ -33,7 +33,7 @@ module.exports = function createStream (options) {
 			    })
 		    }
         }, function (err, res) {
-            if ( res.insertErrors && res.insertErrors.length ) {
+            if ( res && res.insertErrors && res.insertErrors.length ) {
                 err = err || new Error(JSON.stringify(res.insertErrors));
             }
             next(err);
